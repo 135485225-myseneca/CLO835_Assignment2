@@ -32,9 +32,9 @@ jobs:
         ECR_REPOSITORY: my_ecr_repo     
       run: |
         # Docker build image database
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:database -f Dockerfile_mysql .
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:data_base -f Dockerfile_mysql .
         # Docker push image
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:database
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:data_base
         
     - name: Build, test, tag, and push image for Amazon ECR app
       env:
@@ -42,6 +42,6 @@ jobs:
         ECR_REPOSITORY: my_ecr_repo
       run: |
         # Docker build app
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:webapp -f Dockerfile .
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:web_app -f Dockerfile .
         # Docker push
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:webapp
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:web_app
