@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webapp-pod
+  namespace: webapp
+spec:
+  containers:
+  - name: webapp-container
+    image: 055686730858.dkr.ecr.us-east-1.amazonaws.com/my_ecr_repo:web_app
+    env:
+    - name: DBHOST
+      value: "10.96.52.235"
+    - name: DBPORT
+      value: "3306"
+    - name: DBUSER
+      value: "root"
+    - name: DATABASE
+      value: "employees"
+    - name: DBPWD
+      value: "pw"
+    ports:
+    - containerPort: 8080
+      protocol: TCP
